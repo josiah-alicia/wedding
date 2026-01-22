@@ -23,12 +23,14 @@ body {
 }
 
 h1 {
-    font-family: 'Cinzel', serif;
-    font-size: 3.5rem;
+    /* Changed to Great Vibes */
+    font-family: 'Great Vibes', cursive;
+    font-size: 4.5rem; /* Increased size because script fonts appear smaller */
     font-weight: 400;
-    letter-spacing: 10px; /* The "long" elegant look */
-    text-transform: uppercase;
-    margin: 20px 0;
+    /* Removed uppercase and letter-spacing for cursive flow */
+    text-transform: none; 
+    letter-spacing: 0; 
+    margin: 10px 0;
 }
 
 .top-date {
@@ -101,8 +103,10 @@ h3 {
 }
 
 .hashtag {
+    /* Changed to Great Vibes for a personal signature feel */
+    font-family: 'Great Vibes', cursive;
     margin-top: 60px;
-    font-size: 0.8rem;
-    letter-spacing: 3px;
-    opacity: 0.5;
+    font-size: 1.5rem;
+    letter-spacing: 0;
+    opacity: 0.7;
 }
