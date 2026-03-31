@@ -4,13 +4,14 @@
 }
 
 body {
-    background-color: var(--alabaster);
+    background-color: #DED9D2; /* Darker background to contrast the paper */
     color: var(--navy);
     font-family: 'Cormorant Garamond', serif;
     margin: 0;
     padding: 60px 20px;
     display: flex;
     justify-content: center;
+    align-items: center;
     min-height: 100vh;
 }
 
@@ -18,17 +19,35 @@ body {
     max-width: 750px;
     width: 100%;
     text-align: center;
-    border: 1px solid rgba(42, 61, 99, 0.15); /* Subtle frame */
-    padding: 80px 40px;
+    padding: 80px 40px 80px 40px;
+    box-sizing: border-box;
+    position: relative;
+    overflow: hidden;
+    background-color: var(--alabaster);
+    border: 1px solid rgba(42, 61, 99, 0.1);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+}
+
+/* Enhanced Paper Grain Overlay */
+.main-container::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    filter: url(#paperNoise);
+    pointer-events: none;
+    opacity: 0.9; /* Increased opacity for more texture visibility */
+    z-index: 1;
 }
 
 h1 {
     font-family: 'Cinzel', serif;
     font-size: 3.5rem;
     font-weight: 400;
-    letter-spacing: 10px; /* The "long" elegant look */
+    letter-spacing: 10px;
     text-transform: uppercase;
     margin: 20px 0;
+    position: relative;
+    z-index: 2;
 }
 
 .top-date {
@@ -53,9 +72,7 @@ h1 {
     opacity: 0.3;
 }
 
-.venue-block {
-    margin-bottom: 50px;
-}
+.venue-block { margin-bottom: 50px; }
 
 h3 {
     font-family: 'Cinzel', serif;
@@ -65,24 +82,21 @@ h3 {
     margin-bottom: 10px;
 }
 
-.venue-name {
-    font-size: 1.8rem;
-    font-weight: 600;
-}
+.venue-name { font-size: 1.8rem; font-weight: 600; }
 
-.address {
-    font-size: 1rem;
-    opacity: 0.7;
-    margin-top: 5px;
-}
+.address { font-size: 1rem; opacity: 0.7; margin-top: 5px; }
 
-.rsvp-link {
-    text-decoration: none;
+.time { 
+    font-family: 'Cinzel', serif;
+    font-size: 1.4rem;
+    letter-spacing: 2px;
+    margin: 12px 0;
+    opacity: 0.9;
 }
 
 .elegant-button {
-    background-color: transparent;
-    color: var(--navy);
+    background-color: var(--navy);
+    color: var(--alabaster);
     border: 1px solid var(--navy);
     padding: 18px 45px;
     font-family: 'Cinzel', serif;
@@ -91,18 +105,44 @@ h3 {
     letter-spacing: 3px;
     cursor: pointer;
     transition: all 0.5s ease;
-    margin-top: 20px;
+    position: relative;
+    z-index: 5;
 }
 
 .elegant-button:hover {
-    background-color: var(--navy);
-    color: var(--alabaster);
-    letter-spacing: 5px; /* Subtle stretch effect */
+    background-color: var(--alabaster);
+    color: var(--navy);
+    border-color: var(--navy);
 }
 
-.hashtag {
-    margin-top: 60px;
-    font-size: 0.8rem;
-    letter-spacing: 3px;
-    opacity: 0.5;
+.rsvp-link {
+    margin-bottom: 0;
+}
+
+.peony-top-left {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 250px;
+    height: auto;
+    opacity: 0.7;
+    pointer-events: none;
+    z-index: 2;
+}
+
+.peony-bottom-right {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 350px;
+    height: auto;
+    opacity: 0.7;
+    pointer-events: none;
+    z-index: 2;
+}
+
+@media (max-width: 600px) {
+    h1 { font-size: 2.2rem; letter-spacing: 5px; }
+    .corner-illustration { width: 180px; }
+    .main-container { padding: 40px 20px; }
 }
